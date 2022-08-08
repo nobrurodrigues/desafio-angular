@@ -1,0 +1,85 @@
+<div class="content">
+
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">Entrada</label>
+    <input type="text" class="form-control" id="formGroupExampleInput"
+    placeholder="Digite uma sequência de números separados por vírgula" [(ngModel)]="numeros">
+  </div>
+  <div *ngIf="!resultado?.length" class="float-right">
+    <button class="btn btn-primary" (click)="addNumbers()">Mostrar tabela</button>
+  </div>
+  <div *ngIf="resultado?.length" class="float-right">
+    <button class="btn btn-primary" (click)="rotacionar()">Rotacionar</button>
+  </div>
+
+  <div style="text-align: justify; margin-top: 20px;">
+    <h5 style="display: inline-block;">Lista :</h5>
+    <p style="display: inline-block; font-size: 20px;">{{numeros}}</p>
+    <span *ngIf="!listaValida" class="text-danger"
+    style="display: inline-block; margin-left: 10px;">Lista inválida</span>
+  </div>
+
+  <div *ngIf="resultado?.length">
+    <h3>Saída</h3>
+    <div>
+      <table class="table" style="border: 1px solid; margin-top: 20px;">
+        <tbody *ngIf="resultado.length == 4">
+          <tr style="text-align: center;">
+            <td style="border: 1px solid;">{{ resultado[0] }}</td>
+            <td style="border: 1px solid;">{{ resultado[1] }}</td>
+          </tr>
+          <tr style="text-align: center;">
+            <td style="border: 1px solid;">{{ resultado[2] }}</td>
+            <td style="border: 1px solid;">{{ resultado[3] }}</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="resultado.length > 4 && resultado.length == 9">
+          <tr style="text-align: center;">
+            <td style="border: 1px solid;">{{ resultado[0] }}</td>
+            <td style="border: 1px solid;">{{ resultado[1] }}</td>
+            <td style="border: 1px solid;">{{ resultado[2] }}</td>
+          </tr>
+          <tr style="text-align: center;">
+            <td style="border: 1px solid;">{{ resultado[3] }}</td>
+            <td style="border: 1px solid;">{{ resultado[4] }}</td>
+            <td style="border: 1px solid;">{{ resultado[5] }}</td>
+          </tr>
+          <tr style="text-align: center;">
+            <td style="border: 1px solid;">{{ resultado[6] }}</td>
+            <td style="border: 1px solid;">{{ resultado[7] }}</td>
+            <td style="border: 1px solid;">{{ resultado[8] }}</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="resultado.length > 9">
+          <tr style="text-align: center;">
+            <td style="border: 1px solid;">{{ resultado[0] }}</td>
+            <td style="border: 1px solid;">{{ resultado[1] }}</td>
+            <td style="border: 1px solid;">{{ resultado[2] }}</td>
+            <td style="border: 1px solid;">{{ resultado[3] }}</td>
+          </tr>
+          <tr style="text-align: center;">
+            <td style="border: 1px solid;">{{ resultado[4] }}</td>
+            <td style="border: 1px solid;">{{ resultado[5] }}</td>
+            <td style="border: 1px solid;">{{ resultado[6] }}</td>
+            <td style="border: 1px solid;">{{ resultado[7] }}</td>
+          </tr>
+          <tr style="text-align: center;">
+            <td style="border: 1px solid;">{{ resultado[8] }}</td>
+            <td style="border: 1px solid;">{{ resultado[9] }}</td>
+            <td style="border: 1px solid;">{{ resultado[10] }}</td>
+            <td style="border: 1px solid;">{{ resultado[11] }}</td>
+          </tr>
+          <tr style="text-align: center;">
+            <td style="border: 1px solid;">{{ resultado[12] }}</td>
+            <td style="border: 1px solid;">{{ resultado[13] }}</td>
+            <td style="border: 1px solid;">{{ resultado[14] }}</td>
+            <td style="border: 1px solid;">{{ resultado[15] }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="resultado?.length" class="float-right">
+        <button class="btn btn-primary" (click)="limpar()">Limpar</button>
+      </div>
+    </div>
+  </div>
+</div>
